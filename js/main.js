@@ -13,9 +13,8 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 const display = document.querySelector('.display');
 const number = document.querySelector('.number');
 
-let secondi = 5;
-
-
+let secondi = 2;
+let numeriUenteInseriti = []
 
 // array di numeri casuali
 const numberArray = [];
@@ -24,9 +23,10 @@ const numberArray = [];
 // generazione numeri casuali
 for(let i = 0; i < 5; i++) {
   numberArray.push( randomNum() );
+  number.innerHTML = numberArray;
 };
 
-number.innerHTML = numberArray;
+console.log(numberArray);
 
 
 
@@ -37,10 +37,19 @@ const timer = setInterval(() => {
     if(secondi === 0) {
         // fermare intervallo di loop
         clearInterval(timer)
-    
         // aggiornare display
         display.innerHTML = '';
+        // richiesta per inserire 5 numeri
+        let numUtente;
+        for(let i = 0; i < 5; i++) {
+
+         do {
+            numUtente = parseInt(prompt('inserisci un numero'));
+        } while(isNaN(numUtente))
+
+        numeriUenteInseriti.push(numUtente);
         
+    }
     } else {
         countdown.innerText = secondi
         secondi--;
@@ -61,4 +70,3 @@ const timer = setInterval(() => {
     return Math.floor(Math.random() * 100) + 1;
 } 
 
-console.log(numeriRandom);
