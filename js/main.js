@@ -14,10 +14,11 @@ const display = document.querySelector('.display');
 const number = document.querySelector('.number');
 
 let secondi = 2;
-let numeriUenteInseriti = []
 
 // array di numeri casuali
 const numberArray = [];
+// array di numeri inserti dal giocatore tramite il prompt
+let numeriUenteInseriti = []
 
 
 // generazione numeri casuali
@@ -46,8 +47,15 @@ const timer = setInterval(() => {
          do {
             numUtente = parseInt(prompt('inserisci un numero'));
         } while(isNaN(numUtente))
-
         numeriUenteInseriti.push(numUtente);
+
+        let comparazioneNUmeri = numeriUenteInseriti.filter((element)=>{
+            if(numberArray.includes(element) ) {
+                return true; 
+            } 
+        });
+       
+        console.log(comparazioneNUmeri)
         
     }
     } else {
