@@ -48,14 +48,12 @@ const timer = setInterval(() => {
             numUtente = parseInt(prompt('inserisci un numero'));
         } while(isNaN(numUtente))
         numeriUenteInseriti.push(numUtente);
+             // se i numeri inseriti coincidono li inserisco nell'array 
+        let comparazioneNUmeri = numeriUenteInseriti.filter(element => numberArray.includes(element));
+        console.log(comparazioneNUmeri);
 
-        let comparazioneNUmeri = numeriUenteInseriti.filter((element)=>{
-            if(numberArray.includes(element) ) {
-                return true; 
-            } 
-        });
-       
-        console.log(comparazioneNUmeri)
+        number.innerHTML = `totale numeri indovinati: ${comparazioneNUmeri.length}. Lista da indovinare ${numberArray.length}`;
+        display.innerHTML = comparazioneNUmeri;
         
     }
     } else {
